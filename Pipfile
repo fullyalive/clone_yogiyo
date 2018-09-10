@@ -9,6 +9,10 @@ name = "pypi"
 
 django = "*"
 pillow = "*"
+pandas = "*"
+ipython = "*"
+xlrd = "*"
+jupyter = "*"
 
 
 [dev-packages]

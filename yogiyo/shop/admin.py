@@ -16,11 +16,12 @@ class CategoryAdmin(admin.ModelAdmin):
             return mark_safe(img_tag.format(category.icon.url))
         return None
 
+
 @admin.register(Shop)
 class ShopAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
     pass
-
