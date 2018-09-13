@@ -13,6 +13,8 @@ pandas = "*"
 ipython = "*"
 xlrd = "*"
 jupyter = "*"
+requests = "*"
+django-extensions = "*"
 
 
 [dev-packages]
