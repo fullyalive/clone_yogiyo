@@ -31,4 +31,7 @@ class ShopAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['shop', 'name']
+    list_display_links = ['name']
+    list_filter = ['shop']
+    search_fields = ['name']
