@@ -15,6 +15,7 @@ xlrd = "*"
 jupyter = "*"
 requests = "*"
 django-extensions = "*"
+django-jsonfield = "*"
 
 
 [dev-packages]
