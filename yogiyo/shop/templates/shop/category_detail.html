@@ -8,15 +8,15 @@
         <tr>
             <td>
                 {% if shop.photo %}
-                <!-- <a href="{{ shop.get_absolute_url }}"> -->
+                <a href="{{ shop.get_absolute_url }}">
                     <img src="{{ shop.photo.url }}" />
-                <!-- </a> -->
+                </a>
                 {% endif %}
             </td>
             <td>
-                <!-- <a href="{{ shop.get_absolute_url }}"> -->
+                <a href="{{ shop.get_absolute_url }}">
                     {{ shop.name }}
-                <!-- </a> -->
+                </a>
             </td>
             <td>{{ shop.description }} </td>
             <td>{{ shop.latlng }} </td>

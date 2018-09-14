@@ -31,6 +31,10 @@ class Shop(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("shop:shop_detail", args=[self.pk])
+    
+
     @property
     def address(self):
         # meta(JSONField)에 받은 address를 불러오기만 하겠다.
