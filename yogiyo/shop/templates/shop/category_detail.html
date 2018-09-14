@@ -1,33 +1,38 @@
 {% extends "shop/layout.html" %}
 
 {% block content %}
-<h2>{{ category.name }}</h2>
-<table>
-    <tbody>
-        {% for shop in category.shop_set.all %}
-        <tr>
-            <td>
-                {% if shop.photo %}
-                <a href="{{ shop.get_absolute_url }}">
-                    <img src="{{ shop.photo.url }}" />
-                </a>
-                {% endif %}
-            </td>
-            <td>
-                <a href="{{ shop.get_absolute_url }}">
-                    {{ shop.name }}
-                </a>
-            </td>
-            <td>{{ shop.description }} </td>
-            <td>{{ shop.latlng }} </td>
-            <td>{{ shop.is_public}} </td>
-            <td>{{ shop.address }} </td>
-            <!-- meta = JSONField() 에 의해서 불러오는 것 -->
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <h2>{{ category.name }}</h2>
+        <div class="row">
+            {% for shop in category.shop_set.all %}
 
-<hr />
-<a href="{% url "shop:index" %}">홈으로</a>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    {% if shop.photo %}
+                    <img class="card-imag-top" src="{{ shop.photo.url }}" />
+                    {% endif %}
+                    <div class="card-body">
+                        <p class="d-flex justify-content-center"><strong>{{ shop.name }}</strong></p>
+                        <p class="card-text">
+                            {{ shop.description }}
+                            <!-- {{ shop.latlng }}
+                            {{ shop.address }} -->
+                        </p>
+                        <div class="d-flex justify-content-end align-items-center">
+                            <div class="btn-group">
+                                <a href="{{ shop.get_absolute_url }}" class="btn btn-sm btn-outline-secondary">더 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+
+            <hr />
+        </div>
+        <a href="{% url "shop:index" %}" class="btn btn-primary">홈으로</a>
+    </div>
+</div>
+
 {% endblock %}

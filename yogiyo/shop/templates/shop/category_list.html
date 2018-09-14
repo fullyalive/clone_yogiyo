@@ -1,13 +1,28 @@
 {% extends "shop/layout.html" %}
 
 {% block content %}
-<ul>
-    {% for category in category_list %}
-    <li>
-        <a href="{{ category.get_absolute_url }}">
-            {{ category.name }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+
+<div class="container">
+    <div class="row">
+        {% for category in category_list %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                {% if category.icon %}
+                <img class="card-imag-top" src="{{ category.icon.url }}" />
+                {% endif %}
+                <div class="card-body">
+                    <p class="d-flex justify-content-center"><strong>{{ category.name }}</strong></p>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <div class="btn-group">
+                            <a href="{{ category.get_absolute_url }}" class="btn btn-sm btn-outline-secondary">더 보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
 {% endblock %}

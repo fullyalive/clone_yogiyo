@@ -2,27 +2,32 @@
 {% load humanize %}
 
 {% block content %}
-<h2>{{ shop.name }}</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>{{ shop.name }}</h2>
+            <table class="table table-borderd table-hover">
+                <tbody>
+                    {% for item in shop.item_set.all %}
+                    <tr>
+                        <td>
+                            {% if item.photo %}
+                            <img src="{{ item.photo.url }}" style="width:144px;" />
+                            {% endif %}
+                        </td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.amount|intcomma }}</td>
+                        <td>{{ item.is_public }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <a href="{{ shop.category.get_absolute_url }}">{{ shop.category.name }} 카테고리로</a>
+            <a href="{% url "shop:index" %}" class="btn btn-primary">홈으로</a>
+        </div>
+    </div>
+</div>
 
-<table>
-    <tbody>
-        {% for item in shop.item_set.all %}
-        <tr>
-            <td>
-                {% if item.photo %}
-                <img src="{{ item.photo.url }}" style="width:144px;" />
-                {% endif %}
-            </td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.description }}</td>
-            <td>{{ item.amount|intcomma }}</td>
-            <td>{{ item.is_public }}</td>
-            {% endfor %}
-        </tr>
-    </tbody>
-</table>
 
-<hr />
-<a href="{{ shop.category.get_absolute_url }}">{{ shop.category.name }} 카테고리로</a>
-<a href="{% url "shop:index" %}">홈으로</a>
 {% endblock %}

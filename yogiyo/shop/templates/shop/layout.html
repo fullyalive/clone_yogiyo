@@ -1,14 +1,61 @@
+{% load staticfiles %}
+<!-- static 폴더의 이름이 바뀌는 경우라도 문제 없이 적용될 수 있도록-->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>요기요 | Cloning yogiyo with py, django </title>
+    <link rel="stylesheet" href="{% static "bootstrap-4.1.3/css/bootstrap.min.css" %}" />
+    <script src="{% static "jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "bootstrap-4.1.3/js/bootstrap.min.js" %}"></script>
 </head>
+
 <body>
-    <h1>요기요 | 클론코딩</h1>
+    <header class="mb-3">
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contact</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                            <li><a href="#" class="text-white">Like on Facebook</a></li>
+                            <li><a href="#" class="text-white">Email me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>요기요 | cloning yogiyo with py, django, bootstrap</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
     {% block content %}
     {% endblock %}
+
+    <hr />
+
+    <footer>
+        <div class="container mb-3">
+            <div class="row">
+                &copy; 2018. fullyalive
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
