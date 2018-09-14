@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b07db849e72c61b231c04466d523632b856231fee3816eed917fe42da06c70fe"
+            "sha256": "950660f5801614643c1eb7c39c0a346b8eda0cc776dbaed36472fdc0f38cea3c"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -105,6 +105,12 @@
                 "sha256:d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
             ],
             "version": "==0.2.3"
+        },
+        "fake-useragent": {
+            "hashes": [
+                "sha256:cc9b9ddcebc708b3deac846f5fccb16e37c02ee47435a4ec7132271dd96aec8c"
+            ],
+            "version": "==0.1.10"
         },
         "html5lib": {
             "hashes": [
@@ -393,7 +399,6 @@
                 "sha256:d7cc528d76e76342423ca640335bd3633420dc1366f258cb31d05e865ef5ca1f",
                 "sha256:923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"
             ],
-            "markers": "os_name != 'nt'",
             "version": "==0.6.0"
         },
         "pygments": {

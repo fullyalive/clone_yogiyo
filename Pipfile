@@ -16,6 +16,7 @@ jupyter = "*"
 requests = "*"
 django-extensions = "*"
 django-jsonfield = "*"
+fake-useragent = "*"
 
 
 [dev-packages]

@@ -1,6 +1,7 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from jsonfield import JSONField
 
 
@@ -12,6 +13,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("shop:category_detail", args=[self.pk])
+    
+
 
 class Shop(models.Model):
     # category와 shop을 1:N의 관계로
@@ -21,14 +26,16 @@ class Shop(models.Model):
     description = models.TextField(blank=True)
     latlng = models.CharField(max_length=100, blank=True)
     is_public = models.BooleanField(default=False, db_index=True)
-    meta = JSONField() # PostgreSQL의 JSONField와 다르다.
+    meta = JSONField()  # PostgreSQL의 JSONField와 다르다.
 
     def __str__(self):
         return self.name
 
     @property
     def address(self):
-        return self.meta.get('address') # meta(JSONField)에 받은 address를 불러오기만 하겠다.
+        # meta(JSONField)에 받은 address를 불러오기만 하겠다.
+        return self.meta.get('address')
+
 
 class Item(models.Model):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
@@ -38,7 +45,7 @@ class Item(models.Model):
     amount = models.PositiveIntegerField()
     is_public = models.BooleanField(default=False, db_index=True)
     meta = JSONField()
-    
+
     def __str__(self):
         return self.name
 

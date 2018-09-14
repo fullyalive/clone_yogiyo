@@ -21,13 +21,15 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Shop)
 class ShopAdmin(admin.ModelAdmin):
     list_display = ['name', 'address_link']
-    
+
     def address_link(self, shop):
         if shop.address:
             url = 'https://map.naver.com/?query=' + quote(shop.address)
             return mark_safe('<a href="{}" target="_blank">{}</a>'.format(url, shop.address))
         return None
-    address_link.short_description = '주소(네이버 지도)' # admin 카테고리 이름을 address_link 에서 주소(네이버 지도)로 바꾸는 것 
+    # admin 카테고리 이름을 address_link 에서 주소(네이버 지도)로 바꾸는 것
+    address_link.short_description = '주소(네이버 지도)'
+
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
