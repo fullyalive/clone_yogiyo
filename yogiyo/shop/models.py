@@ -64,7 +64,7 @@ class Review(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)])
 
     def __str__(self):
-        return self.creator
+        return self.comment
 
 # class Order(models.Model):
 #     pass

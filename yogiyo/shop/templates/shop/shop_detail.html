@@ -17,9 +17,27 @@
                         </td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.amount|intcomma }}</td>
-                        <td>{{ item.is_public }}</td>
                         {% endfor %}
                     </tr>
+                </tbody>
+            </table>
+
+            <h3>리뷰</h3>
+
+            <a href="{% url "shop:review_new" shop.pk %}" class="btn btn-primary">리뷰 쓰기</a>
+            <table>
+                <tbody>
+                    {% for review in shop.review_set.all %}
+                    <tr>
+                        <td>
+                            {{ review.comment }}
+                            {% if review.photo %}
+                            <img src="{{ review.photo }}" alt="{{ shop.name }}" style="max-width:200px" />
+                            {% endif %}
+                            by {{ review.creator }}
+                        </td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             <hr />
